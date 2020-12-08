@@ -42,10 +42,10 @@
             </thead>
         <tbody>
             <tr>
-                <td>1</td>
-                <td>Eat</td>
-                <td>Tors</td>
-                <td>Mon</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
                 <td class="update_btn"><a href="#">Update</td>
                 <td class="delete_btn"><a href="#">Delete</td>
 
