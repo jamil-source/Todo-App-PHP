@@ -1,6 +1,6 @@
 <?php
 include "db.php";
-include "create.php";
+include "crud.php";
 
 ?>
 <!DOCTYPE html>
@@ -23,6 +23,7 @@ include "create.php";
                 <th>Deadline</th>
                 <th>Update</th>
                 <th>Delete</th>
+                <th>Status</th>
             </thead>
 
         <tbody>
@@ -36,8 +37,9 @@ include "create.php";
                 <td><?php echo $row['importance']?></td>
                 <td><?php echo $row['start'] ?></td>
                 <td><?php echo $row['deadline'] ?></td>
-                <td class="update_btn"><a href="#">Update</td>
-                <td class="delete_btn"><a href="#">Delete</td>
+                <td class="update_btn"><a href="update_form.php?updateTask=<?php echo $row['id']; ?>">Update</td>
+                <td class="delete_btn"><a href="index.php?deleteTask=<?php echo $row['id']; ?>">Delete</td>
+                <td><input type ="submit" name = "complete_btn" value="Complete"></td>
 
             </tr>
             <?php } ?>
