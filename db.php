@@ -5,7 +5,7 @@ $password = "root";
 $db_name = "u04_todo";
 
 // Skapar en väg till vår databas
-$conn = mysqli_connect($servername, $username, $password, $db_name)
+$conn = mysqli_connect($servername, $username, $password, $db_name);
 
 // En errorhandling som skickar ett meddelande om något går snett vid uppkoppling
 

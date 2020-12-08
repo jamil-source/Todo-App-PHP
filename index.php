@@ -1,3 +1,8 @@
+<?php
+include "db.php";
+include "create.php";
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,49 +12,36 @@
     <title>U04-TODO</title>
 </head>
 <body>
-    <section class="todo_form">
-        <h1>Jamils TodoList</h1>
-        <form action="" method="POST">
-            <h2>Todo</h2>
-            <input type="text" name="todo" placeholder ="Task ...">
-            <br>
-            <h2>Importance</h2>
-            <input type="range" name="importance" value="0" min="0" max="5" oninput="this.nextElementSibling.value = this.value">
-            <output></output>
-            <h2>Deadline</h2>
-            <select name="deadline">
-                <option>Mon</option>
-                <option>Tue</option>
-                <option>Wed</option>
-                <option>Thu</option>
-                <option>Fri</option>
-                <option>Sat</option>
-                <option>Sun</option>
-            </select>
-            <br>
-            <input type="submit" name="submit">
-        </form>
-    </section>
+    
     <section class="todo_output">
         <table>
             <thead>
                 <th>ID</th>
                 <th>Task</th>
+                <th>Importance</th>
                 <th>Start</th>
                 <th>Deadline</th>
                 <th>Update</th>
                 <th>Delete</th>
             </thead>
+
         <tbody>
+        <?php
+                while($row = mysqli_fetch_assoc($result)){ // vi fetchar en assosiativ array, tar alltså ut de värderna vi har i vår tabell todos och spottar ut dem
+                
+            ?>
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td><?php echo $row['id'] ?></td>
+                <td><?php echo $row['task']?></td>
+                <td><?php echo $row['importance']?></td>
+                <td><?php echo $row['start'] ?></td>
+                <td><?php echo $row['deadline'] ?></td>
                 <td class="update_btn"><a href="#">Update</td>
                 <td class="delete_btn"><a href="#">Delete</td>
 
             </tr>
+            <?php } ?>
+            
         </tbody>
         </table>
     </section>
