@@ -39,7 +39,7 @@ include "crud.php";
                 <td><?php echo $row['deadline'] ?></td>
                 <td class="update_btn"><a href="update_form.php?updateTask=<?php echo $row['id']; ?>">Update</td>
                 <td class="delete_btn"><a href="index.php?deleteTask=<?php echo $row['id']; ?>">Delete</td>
-                <td><input type ="submit" name = "complete_btn" value="Complete"></td>
+                <td><input type ="checkbox" id = "checkBox" onclick = "checkboxColor(this);"></td>
 
             </tr>
             <?php } ?>
@@ -47,5 +47,6 @@ include "crud.php";
         </tbody>
         </table>
     </section>
+    <script src= "script.js"></script>
 </body>
 </html>
