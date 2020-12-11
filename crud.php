@@ -18,11 +18,22 @@ if(isset($_POST['submit']))
     $start = $_POST['start'];
     $deadline = $_POST['deadline'];
 
-    $sql_create = "INSERT INTO todos (task, importance, start, deadline)
-    VALUES ('$task', '$importance', '$start', '$deadline')";
-    $result_post = mysqli_query($conn, $sql_create);
+    if(!isset($task) || trim($task) == ''){
+      echo "<h2>FILL IN TASK!!!!!!</h2>";
+    } else {
+      $sql_create = "INSERT INTO todos (task, importance, start, deadline)
+      VALUES ('$task', '$importance', '$start', '$deadline')";
+      $result_post = mysqli_query($conn, $sql_create);
+      
+      if(!$result_post)
+      {
+        die("Ett fel har uppstått");
+      } else {
+        header("Location: index.php");
+      }
+    }
 
-    handleError($sql_create);
+    
 }
 
 
@@ -40,11 +51,11 @@ if (isset($_GET['deleteTask']))
 }
 
 // UPDATE
-
 if(isset($_GET['updateTask']))
 {
   $update_todos = $_GET['updateTask'];
 }
+
 
 if(isset($_POST['update']))
 {
@@ -53,12 +64,21 @@ if(isset($_POST['update']))
   $update_importance = $_POST['importance'];
   $update_start = $_POST['start'];
   $update_deadline = $_POST['deadline'];
+  $update_status = $_POST['status'];
+
+  if(!isset($update_task) || trim($update_task) == ''){
+    echo "<h2>FILL IN TASK!!!!!!</h2>";
+  } else {
+    $sql_update = "UPDATE todos SET task = '$update_task', importance = '$update_importance', start = '$update_start', deadline = '$update_deadline', status ='$update_status' WHERE id = $update_todos ";
+    
+    $result_update = mysqli_query($conn, $sql_update);
+
+    handleError($sql_update);
+  }
   
-  $sql_update = "UPDATE todos SET task = '$update_task', importance = '$update_importance', start = '$update_start', deadline = '$update_deadline' WHERE id = $update_todos ";
-  $result_update = mysqli_query($conn, $sql_update);
+  
 
-  handleError($sql_update);
-
+}
 }
 
 // Checkmark

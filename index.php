@@ -14,16 +14,16 @@ include "crud.php";
 <body>
     
     <section class="todo_output">
-        <table>
+        <table class="table">
             <thead>
                 <th>ID</th>
                 <th>Task</th>
                 <th>Importance</th>
                 <th>Start</th>
                 <th>Deadline</th>
+                <th>Status</th>
                 <th>Update</th>
                 <th>Delete</th>
-                <th>Status</th>
             </thead>
 
         <tbody>
@@ -37,9 +37,9 @@ include "crud.php";
                 <td><?php echo $row['importance']?></td>
                 <td><?php echo $row['start'] ?></td>
                 <td><?php echo $row['deadline'] ?></td>
+                <td><?php echo $row['status']?></td>
                 <td class="update_btn"><a href="update_form.php?updateTask=<?php echo $row['id']; ?>">Update</td>
                 <td class="delete_btn"><a href="index.php?deleteTask=<?php echo $row['id']; ?>">Delete</td>
-                <td><input type ="checkbox" id = "checkBox" onclick = "checkboxColor(this);"></td>
 
             </tr>
             <?php } ?>

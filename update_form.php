@@ -14,7 +14,7 @@ include 'crud.php';
 <body>
 <section class="todo_form">
         <h1>Redigera Jamils Todo</h1>
-        <form action="" method="POST">
+        <form action="" method="POST" onsubmit ="return validate()">
             <?php
                 $sql_update = "SELECT * FROM todos WHERE id = $update_todos";
                 $result_update = mysqli_query($conn, $sql_update);
@@ -39,7 +39,7 @@ include 'crud.php';
             </select>
             <br>
             <h2>Deadline</h2>
-            <select name="deadline" value ="<?php echo $data['deadline'];?>">
+            <select name="deadline" value ="<?php echo $data['deadline'];?> ">
                 <option>Mon</option>
                 <option>Tue</option>
                 <option>Wed</option>
@@ -49,8 +49,14 @@ include 'crud.php';
                 <option>Sun</option>
             </select>
             <br>
+            <label for="done">Done</label>
+            <input type="checkbox" name="status" id = "done" value = "Done">
+            <label for="not_done">Not Done</label>
+            <input type="checkbox" name="status" id = "not_done" value = "Not Done">
+            <br>
             <input type="submit" name="update">
         </form>
     </section>
+    <script src = script.js></script>
 </body>
 </html>
