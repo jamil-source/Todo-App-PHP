@@ -1,6 +1,6 @@
 <?php
-include 'db.php';
-include 'crud.php';
+include_once 'db.php';
+include_once 'crud.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,6 +9,7 @@ include 'crud.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form to update todo</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="script.js"></script>
 
 </head>
 <body>
@@ -16,6 +17,7 @@ include 'crud.php';
         <h1>Redigera Jamils Todo</h1>
         <form action="" method="POST" onsubmit ="return validate()">
             <?php
+                $update_todos = $todoList->setValueForUpdate();
                 $sql_update = "SELECT * FROM todos WHERE id = $update_todos";
                 $result_update = mysqli_query($conn, $sql_update);
                 $data = mysqli_fetch_array($result_update);
@@ -39,7 +41,7 @@ include 'crud.php';
             </select>
             <br>
             <h2>Deadline</h2>
-            <select name="deadline" value ="<?php echo $data['deadline'];?> ">
+            <select name="deadline" value ="<?php echo $data['deadline'];?>">
                 <option>Mon</option>
                 <option>Tue</option>
                 <option>Wed</option>
@@ -57,6 +59,5 @@ include 'crud.php';
             <input type="submit" name="update">
         </form>
     </section>
-    <script src = script.js></script>
 </body>
 </html>

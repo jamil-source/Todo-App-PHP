@@ -1,6 +1,6 @@
 <?php
-include "db.php";
-include "crud.php";
+include_once "db.php";
+include_once "crud.php";
 
 ?>
 <!DOCTYPE html>
@@ -28,6 +28,7 @@ include "crud.php";
 
         <tbody>
         <?php
+                $result = $todoList->getAllUsers();
                 while($row = mysqli_fetch_assoc($result)){ // vi fetchar en assosiativ array, tar alltså ut de värderna vi har i vår tabell todos och spottar ut dem
                 
             ?>

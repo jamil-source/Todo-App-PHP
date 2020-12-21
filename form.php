@@ -1,3 +1,7 @@
+<?php
+include_once "crud.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +14,7 @@
 <body>
 <section class="todo_form">
         <h1>Jamils TodoList</h1>
-        <form action="index.php" method="POST">
+        <form action="form.php" method="POST">
             <h2>Todo</h2>
             <input type="text" name="todo" placeholder ="Task ...">
             <br>
