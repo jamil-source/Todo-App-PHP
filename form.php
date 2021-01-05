@@ -8,18 +8,19 @@ include_once "crud.php";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form to create todo</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css?v=<?php echo time(); ?>">
 
 </head>
 <body>
 <section class="todo_form">
-        <h1>Jamils TodoList</h1>
+        
         <form action="form.php" method="POST">
-            <h2>Todo</h2>
-            <input type="text" name="todo" placeholder ="Task ...">
+            <h1>Jamils TodoList</h1>
+            <label for="todo">Todo</label>
+            <input type="text" name="todo" id="todo" placeholder ="Task ...">
             <br>
-            <h2>Importance</h2>
-            <input type="range" name="importance" value="0" min="0" max="5" oninput="this.nextElementSibling.value = this.value">
+            <label for="importance">Importance</label>
+            <input type="range" id= "importance" name="importance" value="0" min="0" max="5" oninput="this.nextElementSibling.value = this.value">
             <output></output>
             <br>
             <h2>Start</h2>
@@ -44,8 +45,12 @@ include_once "crud.php";
                 <option>Sun</option>
             </select>
             <br>
-            <input type="submit" name="submit">
+            <input id= submit type="submit" name="submit">
         </form>
+        <figure>
+            <figcaption>SHOW TABLE</figcaption>
+            <a href="index.php"><img src="img/arrow.gif" alt="arrow" class="arrow" ></a>
+        </figure>
     </section>
 </body>
 </html>

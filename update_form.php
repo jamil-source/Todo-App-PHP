@@ -14,7 +14,6 @@ include_once 'crud.php';
 </head>
 <body>
 <section class="todo_form">
-        <h1>Redigera Jamils Todo</h1>
         <form action="" method="POST" onsubmit ="return validate()">
             <?php
                 $update_todos = $todoList->setValueForUpdate();
@@ -22,8 +21,9 @@ include_once 'crud.php';
                 $result_update = mysqli_query($conn, $sql_update);
                 $data = mysqli_fetch_array($result_update);
             ?>
+            <h1>Redigera Jamils Todo</h1>
             <h2>Todo</h2>
-            <input type="text" name="todo" placeholder ="Task ..." value = "<?php echo $data['task'];?>">
+            <input type="text" id = "todo" name="todo" placeholder ="Task ..." value = "<?php echo $data['task'];?>">
             <br>
             <h2>Importance</h2>
             <input type="range" name="importance" value="<?php echo $data['importance'];?>" min="0" max="5" oninput="this.nextElementSibling.value = this.value">
@@ -51,13 +51,18 @@ include_once 'crud.php';
                 <option>Sun</option>
             </select>
             <br>
-            <label for="done">Done</label>
-            <input type="checkbox" name="status" id = "done" value = "Done">
-            <label for="not_done">Not Done</label>
-            <input type="checkbox" name="status" id = "not_done" value = "Not Done">
+            <label class = "status-label" for="done">Done</label>
+            <input type="radio" name="status" id = "done" class = "status" value = "Done">
+            
+            <label class = "status-label" for="not_done">Not Done</label>
+            <input type="radio" name="status" id = "not_done" class = "status" value = "Not Done">
             <br>
-            <input type="submit" name="update">
+            <input id= submit type="submit" name="update">
         </form>
+        <figure>
+            <figcaption>SHOW TABLE</figcaption>
+            <a href="index.php"><img src="img/arrow.gif" alt="arrow" class="arrow" ></a>
+        </figure>
     </section>
 </body>
 </html>

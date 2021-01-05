@@ -47,6 +47,11 @@ include_once "crud.php";
             
         </tbody>
         </table>
+        <figure>
+            <figcaption>ADD TODO</figcaption>
+            <a href="form.php"><img src="img/giphy.gif" alt="arrow" class="arrow" ></a>
+        </figure>
+   
     </section>
     <script src= "script.js"></script>
 </body>
